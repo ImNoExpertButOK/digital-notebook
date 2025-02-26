@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
-      <title>Meu caderninho digital ✍🏻</title>
+      <title>Caderno digital ✍🏻</title>
       <link>https://quartz.jzhao.xyz</link>
-      <description>Last 10 notes on Meu caderninho digital ✍🏻</description>
+      <description>Last 10 notes on Caderno digital ✍🏻</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Welcome to Quartz</title>
+    <title>Cheatsheet de ImageMagick</title>
+    <link>https://quartz.jzhao.xyz/Utilidades/Cheatsheet-de-Image-Magick</link>
+    <guid>https://quartz.jzhao.xyz/Utilidades/Cheatsheet-de-Image-Magick</guid>
+    <description>Fazer um panorama de imagens para carrossel de Instagram Aqui um comando que parece meio mágico: magick montage -background &#039;#000000&#039; -geometry +1 -resize &quot;50%&quot; ...</description>
+    <pubDate>Tue, 18 Feb 2025 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Cheatsheet de ffmpeg</title>
+    <link>https://quartz.jzhao.xyz/Utilidades/Cheatsheet-de-ffmpeg</link>
+    <guid>https://quartz.jzhao.xyz/Utilidades/Cheatsheet-de-ffmpeg</guid>
+    <description>Extrair frames de um vídeo O comando para dividir um gif em arquivos diferentes, um png para cada frame: ffmpeg -i arquivo_para_ser_dividido.gif -vsync 0 arquivos_separados_%d.png ...</description>
+    <pubDate>Tue, 18 Feb 2025 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Comparando presets de PDFs no InDesign</title>
+    <link>https://quartz.jzhao.xyz/Utilidades/Como-exportar-PDFs-com-tamanhos-pequenos</link>
+    <guid>https://quartz.jzhao.xyz/Utilidades/Como-exportar-PDFs-com-tamanhos-pequenos</guid>
+    <description>Porque essa página existe? Ao gerar um PDF a partir de um arquivo de InDesign, muitos fatores podem influenciar no seu tamanho e qualidade final. Essa página busca comparar algumas pré-configurações (presets) para descobrir qual o melhor custo benefício entre tamanho de arquivo e qualidade.</description>
+    <pubDate>Tue, 18 Feb 2025 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Converter um PDF inteiro em curvas</title>
+    <link>https://quartz.jzhao.xyz/Utilidades/PDF-em-curvas</link>
+    <guid>https://quartz.jzhao.xyz/Utilidades/PDF-em-curvas</guid>
+    <description>Porque essa página existe? Idealmente, arquivos PDF fechados para produção são exportados com todo seu conteúdo de texto transformado em curvas, ou seja, com seus caracteres convertidos ...</description>
+    <pubDate>Tue, 18 Feb 2025 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Capítulo 1</title>
+    <link>https://quartz.jzhao.xyz/Guia-de-GREP-para-designers/grep_para_indesign</link>
+    <guid>https://quartz.jzhao.xyz/Guia-de-GREP-para-designers/grep_para_indesign</guid>
+    <description>Introdução O que é GREP? GREP é uma sigla que significa Global Regular Expression Print. É um programa de busca de texto avançada, que usa padrões de caracteres chamados expressões regulares para encontrar padrões complexos de caracteres em textos.</description>
+    <pubDate>Thu, 03 Oct 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Olá!</title>
     <link>https://quartz.jzhao.xyz/</link>
     <guid>https://quartz.jzhao.xyz/</guid>
-    <description>This is a blank Quartz installation. See the documentation for how to get started.</description>
-    <pubDate>Sat, 28 Sep 2024 02:23:48 GMT</pubDate>
+    <description>Alô! Meu nome é Renato e esse é o meu caderno digital. Uma espécie de blog misturado com repositório de projetos aonde eu falo de dados, design gráfico, design da informação, automação e processos, e uma tentativa menos passiva e mais dinâmica de existir na internet.</description>
+    <pubDate>Wed, 02 Oct 2024 12:02:25 GMT</pubDate>
   </item>
     </channel>
   </rss>

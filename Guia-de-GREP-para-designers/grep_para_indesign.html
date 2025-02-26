@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Capítulo 1</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Atkinson Hyperlegible:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Caderno digital ✍🏻"/><meta property="og:title" content="Capítulo 1"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Capítulo 1"/><meta name="twitter:description" content="Introdução O que é GREP? GREP é uma sigla que significa Global Regular Expression Print. É um programa de busca de texto avançada, que usa padrões de caracteres chamados expressões regulares para encontrar padrões complexos de caracteres em textos."/><meta property="og:description" content="Introdução O que é GREP? GREP é uma sigla que significa Global Regular Expression Print. É um programa de busca de texto avançada, que usa padrões de caracteres chamados expressões regulares para encontrar padrões complexos de caracteres em textos."/><meta property="og:image:type" content="image/webp"/><meta property="og:image:alt" content="Introdução O que é GREP? GREP é uma sigla que significa Global Regular Expression Print. É um programa de busca de texto avançada, que usa padrões de caracteres chamados expressões regulares para encontrar padrões complexos de caracteres em textos."/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/Guia-de-GREP-para-designers/grep_para_indesign"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/Guia-de-GREP-para-designers/grep_para_indesign"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Introdução O que é GREP? GREP é uma sigla que significa Global Regular Expression Print. É um programa de busca de texto avançada, que usa padrões de caracteres chamados expressões regulares para encontrar padrões complexos de caracteres em textos."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="Guia-de-GREP-para-designers/grep_para_indesign"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Caderno digital ✍🏻</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="explorer"><button type="button" id="mobile-explorer" class="collapsed hide-until-loaded" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;Guia-de-GREP-para-designers&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;Utilidades&quot;,&quot;collapsed&quot;:true}]" data-mobile="true" aria-controls="explorer-content" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" id="desktop-explorer" class="title-button" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;Guia-de-GREP-para-designers&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;Utilidades&quot;,&quot;collapsed&quot;:true}]" data-mobile="false" aria-controls="explorer-content" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-content"><ul class="overflow" id="explorer-ul"><li><div class="folder-outer open"><ul style="padding-left:0;" class="content" data-folderul><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="Guia-de-GREP-para-designers"><button class="folder-button"><span class="folder-title">Guia de GREP para designers</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="Guia-de-GREP-para-designers"><li><a href="../Guia-de-GREP-para-designers/grep_para_indesign" data-for="Guia-de-GREP-para-designers/grep_para_indesign">Capítulo 1</a></li></ul></div></li><li><div class="folder-outer "><ul style="padding-left:0;" class="content" data-folderul></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="Utilidades"><button class="folder-button"><span class="folder-title">Utilidades</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="Utilidades"><li><a href="../Utilidades/Cheatsheet-de-ffmpeg" data-for="Utilidades/Cheatsheet-de-ffmpeg">Cheatsheet de ffmpeg</a></li><li><a href="../Utilidades/Cheatsheet-de-Image-Magick" data-for="Utilidades/Cheatsheet-de-Image-Magick">Cheatsheet de ImageMagick</a></li><li><a href="../Utilidades/Como-exportar-PDFs-com-tamanhos-pequenos" data-for="Utilidades/Como-exportar-PDFs-com-tamanhos-pequenos">Comparando presets de PDFs no InDesign</a></li><li><a href="../Utilidades/PDF-em-curvas" data-for="Utilidades/PDF-em-curvas">Converter um PDF inteiro em curvas</a></li></ul></div></li></ul></div></li><li id="explorer-end"></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../Guia-de-GREP-para-designers/">Guia de GREP para designers</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Capítulo 1</a></div></nav><h1 class="article-title">Capítulo 1</h1><ul class="tags"><li><a href="../tags/graphic-design" class="internal tag-link">graphic-design</a></li><li><a href="../tags/indesign" class="internal tag-link">indesign</a></li><li><a href="../tags/processos" class="internal tag-link">processos</a></li></ul></div></div><article class="popover-hint"><h2 id="introdução">Introdução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introdução" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="o-que-é-grep">O que é GREP?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-que-é-grep" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>GREP é uma sigla que significa <strong>G</strong>lobal <strong>R</strong>egular <strong>E</strong>xpression <strong>P</strong>rint. É um programa de busca de texto avançada, que usa padrões de caracteres chamados <em>expressões regulares</em> para encontrar padrões complexos de caracteres em textos.</p>
+<p>Este curso é <strong>fortemente</strong> baseado no livro <a href="https://novatec.com.br/livros/introducao-expressoes-regulares/" class="external">Introdução às expressões regulares<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> de Michael Fitzgerald. Seu conteúdo foi ligeiramente adaptado em alguns momentos para torná-lo um pouco mais didático e para transpor o conteúdo para a realidade da sua aplicação dentro do InDesign.</p>
+<h3 id="porque-isso-é-relevante">Porque isso é relevante?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#porque-isso-é-relevante" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Um dos programas que mais usamos enquanto designers, o InDesign, vem com um GREP embutido. Ao trabalharmos com textos muito longos ou muito variados, as limitações das buscas simples do Ctrl+F logo se tornam aparentes. GREP é uma ferramenta que, como vamos ver, muito rapidamente amplia as possibilidades do software para executar projetos muito mais rápido.</p>
+<p>Além do que: talvez não seja relevante, mas é muito legal</p>
+<h3 id="como-posso-usar-o-grep">Como posso usar o GREP?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#como-posso-usar-o-grep" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>GREP, em si, é um programa muito antigo, e já vem embutido em vários lugares. Como nosso interesse aqui é seu uso integrado a processos de diagramação, ele pode ser acessado usando o menu de busca do InDesign e clicando na aba de GREP.</p>
+<p><img src="../Attachments/interface-busca-indesign.png" width="auto" height="auto" alt/></p>
+<p>É no campo de <em>Find what</em> que inseriremos regras que agirão como “fórmulas” para encontrar texto no nosso documento.</p>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Nota para outros nerdolas </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Se você usa um computador com MacOS ele vem embutido no seu terminal, e pode ser usado direto na linha de comando para um milhão de coisas, como encontrar palavras em arquivos de texto e achar arquivos no seu computador. Linha de comando está infelizmente fora do escopo desse guia, mas é uma ferramenta de utilidade quase infinita para todo mundo, especialmente designers. Se o que você ler aqui te despertar um interesse, recomendo ir atrás de <a href="https://support.apple.com/guide/terminal/welcome/mac" class="external">saber mais.<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="capítulo-1">Capítulo 1<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#capítulo-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Começando com um exemplo meio esdrúxulo, mas simples. Digamos que você esteja editando uma lista de números de telefone, e queira encontrar todos os telefones que contenham um certo dígito. O seletor de GREP mais simples é o texto explícito (também chamado de <em>string literal</em>) que você está buscando. Se colocar o número 9 no processador de GREP ele agirá basicamente como um Ctrl+F de um programa comum, e irá te retornar todas as ocorrências do número 9. Por exemplo: Uma busca GREP com o número 9 no número de telefone (11) 90921-6642 retornaria o seguinte:</p>
+<p>(11) <strong>9</strong>0<strong>9</strong>21-6642</p>
+<p>Simples, certo? Agora, digamos que queira fazer uma seleção um pouquinho mais complexa. Digamos que precise selecionar todos os números entre 1 a 7 em um corpo de texto. Uma abordagem simples seria fazer uma busca por cada número que estamos procurando. Isso funcionaria, mas seria um pouco repetitivo, e nosso tempo é valioso.</p>
+<p>Com GREP podemos utilizar um dos chamados <em>metacaracteres</em> para a tarefa. Metacaracteres são caracteres que são ignorados pelo programa enquanto strings literais, mas que são ao invés disso utilizadas para criar expressões mais complexas. O colchete é um metacaractere que designa grupos de possíveis opções. Como estamos buscando por todos os números de 1 a 7, poderíamos escrever uma busca <code>[1234567]</code>, e isso retornaria todos os números dentro desse conjunto. Outra maneira um pouco mais concisa de designar a mesma coisa seria <code>[1-7]</code>. Ambas as opções retornariam os seguintes números:</p>
+<p>(<strong>11</strong>) 9<strong>0</strong>9<strong>21</strong>-<strong>6642</strong></p>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Atenção </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Esse seletor selecionaria cada número <strong>individualmente</strong>, neste caso 2 e depois 7, não 27. Esta distinção é importante, porque caso estivesse procurando números com dois dígitos para dar um tratamento específico a abordagem teria que ser diferente.</p>
+</div>
+</blockquote>
+<h3 id="seletores-shorthand">Seletores <em>shorthand</em><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#seletores-shorthand" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Uma maneira interessante de selecionar caracteres é com o chamado <em>shorthand</em>. O shorthand <code>/d</code> por exemplo retorna todos os dígitos, e faz a mesma função do seletor <code>[0-9]</code>. Porém, vale dizer que seu uso seguido retorna conjuntos da exata composição especificada. Por exemplo, o seletor <code>\d\d\d\d</code> retornaria conjuntos de quatro números juntos, não quatro ocorrências de um dígitos. No telefone sendo usado de exemplo, retornaria o seguinte:</p>
+<p>(11) <strong>9092</strong>1-<strong>6642</strong></p>
+<p>A partir disso podemos concluir que se estivéssemos trabalhando em um documento com muitos telefones e quiséssemos aplicar um tratamento especial a todos, poderíamos usar a seguinte expressão:</p>
+<p><code>\d\d\d\d\d-\d\d\d\d</code></p>
+<p>Note aqui que estamos selecionando o hífen com uma string literal <code>-</code>. Mas e se estivéssemos lidando com um documento aonde números estão separados por caracteres variados? Poderíamos tornar nossa expressão mais flexível usando o seletor <code>\D</code>, que tem como função selecionar qualquer caractere <em>que não seja</em> um dígito, inclusive espaços em branco</p>
+<p>No caso dos hífens, para selecioná-los, seria possível usar o string literal <code>-</code>, mas há também a possibilidade de usar o seletor <code>\D</code> que tem como função selecionar qualquer caractere que <em>não</em> seja um dígito, inclusive espaços em branco! Ou seja, essa expressão seria capaz de capturar o número de telefone mesmo se estivesse escrito de outras maneiras:</p>
+<p><strong>90921-6642</strong></p>
+<p><strong>90921.6642</strong></p>
+<p><strong>90921 6642</strong></p>
+<p><strong>90921_6642</strong></p>
+<p>Por fim, há um outro seletor poderoso que poderíamos também empregar nesse caso. O ponto <code>.</code> é chamado de <em>wildcard</em>, ou seletor coringa. Ele dará match com qualquer caractere, exceto terminação de linhas, que são ignoradas por padrão pelo InDesign.</p>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Nota </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Talvez você esteja se perguntando “Se o ponto é um seletor coringa como faria para selecionar todos os pontos? E se quisesse selecionar colchetes?“.</p>
+<p>Simples: todos os caracteres especiais podem ser “literalizados” com o uso da barra <code>\</code>. A barra é conhecida como o <em>escape character</em>, e pode ser utilizada em determinados contextos para dizer ao GREP que o que quer que venha depois da barra, você quer selecionado!</p>
+<p>Como um exemplo rápido: imagine que os telefones que você quer selecionar estão todos entre chaves, e você quer criar uma seleção que <strong>inclua</strong> as chaves. Mas, como vimos acima, as chaves são metacaracteres reservados pelo GREP para designar grupos! poderíamos usar uma expressão como <code>\[telefone\]</code> para selecionar <em>com os colchetes</em>. De maneira similar poderíamos usar uma expressão como <code>\.</code> para selecionar todos os pontos.</p>
+<p>Se seu uso ainda parece um pouco nebuloso não se preocupe, essa prática aparecerá com mais frequência mais para frente, e sua aplicação ficará mais clara.</p>
+</div>
+</blockquote>
+<h3 id="grupos-de-captura">Grupos de captura<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#grupos-de-captura" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Uma função interessante que poderia ser aplicada aqui são os chamados grupos de captura (<em>capture groups</em>, em inglês). Grupos de captura são expressões regulares envoltas em parênteses que se comportam como um grupo, e tem como objetivo serem referenciadas mais facilmente através de números em uma mesma expressão. Por exemplo, a expressão <code>(\d)\d\1</code> cria um grupo de captura equivalente a <code>(\d)</code>, e o referencia ao final da expressão usando <code>\1</code> (atente a barra de escape antes do 1, indicando ao GREP que não queremos o número 1 e sim o grupo de captura 1). Qual é o pulo do gato: o grupo de captura faz referência não só a expressão dentro dos parênteses, mas ao seu valor também. Então essa expressão iria capturar todos os conjuntos de três digitos <strong>aonde o primeiro dígito é igual ao último</strong>. Desta forma ele capturaria o seguinte:</p>
+<p>(11) <strong>909</strong>21-6642</p>
+<p>E isso funciona com conjuntos de texto também!</p>
+<h3 id="quantificadores">Quantificadores<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#quantificadores" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Os quantificadores, como o nome sugere, especifica quantas ocorrências da expressão fornecida você está procurando.</p>
+<p>Por exemplo, se buscamos conjuntos de <em>exatamente</em> quatro dígitos, poderíamos escrever algo como <code>\d\d\d\d</code>, mas isso parece um pouco longo e repetitivo. Neste caso poderíamos empregar o uso dos metacaracteres <code>{}</code> e subtituir essa expressão toda por <code>\d{4}</code>, que fica um pouco mais legível, curto e fácil de alterar. As chaves aceitam ainda outros parâmetros para especificar <em>limites de ocorrências</em>, no formato: <code>{mínimo,máximo}</code>.</p>
+<p>Há outros quantificadores que atuam de maneira mais abrangente:</p>
+<ul>
+<li>A interrogação <code>?</code> que significa “zero ou uma vez” do caractere que o precedeu.</li>
+<li>O sinal de adição <code>+</code>, que significa “um ou mais” do caractere que o precedeu.</li>
+<li>O asterisco <code>*</code>, que significa “zero ou mais” do caractere que o precedeu.</li>
+</ul>
+<p>Com esses quantificadores, poderíamos tornar nossa busca por números de telefones mais flexível. Não é estranho encontrarmos números de telefone escritos com caracteres separando os dígitos em conjuntos menores, como o hífen no telefone que estamos usando de exemplo. Poderíamos construir uma expressão que capturasse ambos os casos, da seguinte forma:</p>
+<p><code>\(\d{2}\) ?\d{5}-?\d{4}</code></p>
+<p>Parece bizarra, mas é só olhar para ela em partes! Vamos lá:</p>
+<ol>
+<li>Na primeira parte estamos buscando o DDD, então estamos dizendo que queremos dois dígitos <code>\d{2}</code> entre parênteses <code>\(\)</code>. Note que temos que usar a barra antes dos parênteses, para deixar claro que queremos os seus caracteres literais.</li>
+<li>Temos que presumir que os telefones <em>podem conter ou não</em> um espaço em branco entre o DDD e o resto do telefone, então incluímos o caractere de espaço e a interrogação <code>   ?</code>, para contemplar essa possibilidade.</li>
+<li>Na segunda parte estamos dizendo que queremos um conjunto de cinco dígitos <code>\d{5}</code> e outro conjunto de quatro dígitos <code>\d{5}</code> que <em>podem ou não</em> estar separados por um hífen <code>-?</code>. Como vimos acima, a interrogação aqui age como um quantificador, significando <em>zero ou uma vezes</em>. Ou seja, se colocada após o hífen, basicamente diz que o hífen é opcional. Pode ou não estar presente.</li>
+</ol>
+<p>Esta expressão que montamos é bem flexível e seria capaz de pegar números de telefone em diversos formatos:</p>
+<ul>
+<li>(11) 90921-6642</li>
+<li>(11) 909216642</li>
+<li>(11)909216642</li>
+</ul>
+<p><strong>Bom demais!</strong></p>
+<p>Para resumir, podemos fazer uma tabela para usarmos de colinha:.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Quantificador</th><th style="text-align:left;">Descrição</th></tr></thead><tbody><tr><td style="text-align:left;">*</td><td style="text-align:left;">Dê match no item anterior caso ele apareça <strong>zero ou mais</strong> vezes.</td></tr><tr><td style="text-align:left;">?</td><td style="text-align:left;">Dê match no item anterior caso ele apareça <strong>zero ou uma</strong> vez.</td></tr><tr><td style="text-align:left;">+</td><td style="text-align:left;">Dê match no item anterior caso ele apareça <strong>uma ou mais</strong> vezes.</td></tr><tr><td style="text-align:left;">{n}</td><td style="text-align:left;">Dê match no item anterior caso ele apareça <strong>exatamente n</strong> vezes.</td></tr><tr><td style="text-align:left;">{n,}</td><td style="text-align:left;">Dê match no item anterior caso ele apareça <strong>ao menos n</strong> vezes.</td></tr><tr><td style="text-align:left;">{,m}</td><td style="text-align:left;">Dê match no item anterior caso ele apareça <strong>no máximo m</strong> vezes.</td></tr><tr><td style="text-align:left;">{n,m}</td><td style="text-align:left;">Dê match no item anterior caso ele apareça <strong>entre n e m</strong> vezes.</td></tr></tbody></table></div>
+<h3 id="teste-final">Teste final<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#teste-final" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Podemos então deixar a expressão ainda mais concisa, porém mais ilegível:</p>
+<p><code>(\d{3,4}[.-]?)+</code></p>
+<p>O que isso quer dizer? Quer dizer que estamos buscando um dígito qualquer entre 0 e 9 <code>\d</code> que ocorra entre três e quatro vezes <code>{3, 4}</code>, e que são seguidos dos caracteres ponto ou hífen <code>[.-]</code> por uma ou nenhuma vezes. Este conjunto todo ocorrendo uma ou mais vezes, significado pelo quantificador <code>+</code>.</p>
+<p>Um problema é que esta abordagem corresponderia a outros grupos de três ou quatro dígitos que estejam ou não no formato de um número de telefone, e é bom termos uma abordagem mais específica. Podemos fazer uma segunda versão:</p>
+<p><code>(\d{3}[.-]?){2}\d{4}</code></p>
+<p>O que esta expressão está buscando? está buscando dois conjuntos de três números cada, que não estão entre parênteses, seguidas por um hífen opcional, e depois seguidas exatamente por quatro dígitos.</p>
+<p>Podemos levar essa expressão mais um passo adiante, colocando uma condicionalidade da presença de parênteses na primeira sequência de três dígitos e a presença opcional de códigos de área.</p>
+<p><code>^(\(\d{3}\)|^\d{3}[.-]?)?\d{3}[.-]?\d{4}$</code></p>
+<p>Algumas coisas novas! vale uma explicação passo a passo:</p>
+<ul>
+<li>Os elementos de circunflexo (caret) <code>^</code> e de cifrão <code>$</code> são delimitadores e funcionam como âncoras para a sua expressão, querendo dizer “no começo de uma linha” e “fim de uma linha”, respectivamente.
+<ul>
+<li>Aprofundando um pouco mais este exemplo, a expressão <code>[0–9]+$</code> vai corresponder a qualquer string que termine com um ou mais dígitos, e a expressão <code>^[0–9]+</code> vai corresponder a qualquer string que comece com um ou mais números. Por exemplo:</li>
+<li>A primeira expressão retornaria teste<span class="text-highlight">123</span>, e a segunda retornaria <span class="text-highlight">123</span>teste.</li>
+<li>Ao utilizarmos o circunflexo e o cifrão na expressão estamos efetivamente pedindo por um resultado que esteja isolado, que tenha espaços antes e depois, para evitarmos de capturar itens no meio de texto.</li>
+</ul>
+</li>
+<li><code>(</code> abre grupo de captura</li>
+<li>O elemento <code>\(</code> especifica um parênteses literal. Aqui o caractere de escape tem uma função especial de restaurar o significado literal do caractere seguinte, já que no regex o <code>(</code> tem função especial.</li>
+<li><code>\d</code> busca por dígitos.</li>
+<li><code>{3}</code> quantificador de três ocorrências.</li>
+<li><code>\)</code> busca pelo parênteses fechado literal.</li>
+<li><code>|</code> barra vertical significa uma alternativa, ou seja, uma escolha de “caso não encontre isso, busque isso”. Neste caso, pedimos para testar o match com os primeiros três dígitos entre parênteses, mas caso não encontre teste com a expressão seguinte:</li>
+<li><code>^</code> começo da linha</li>
+<li><code>\d</code> busca por dígitos.</li>
+<li><code>{3}</code> quantificador de três ocorrências.</li>
+<li><code>[.-]?</code> match em um ponto ou hífen opcional</li>
+<li><code>)</code> fecha grupo de captura</li>
+<li><code>?</code> torna o grupo opcional, ou seja, o prefixo do grupo não é obrigatório.</li>
+<li><code>\d</code> busca por dígitos.</li>
+<li><code>{3}</code> quantificador de três ocorrências.</li>
+<li><code>[.-]?</code> match em um ponto ou hífen opcional</li>
+<li><code>\d</code> busca por dígitos.</li>
+<li><code>{4}</code> quantificador de quatro ocorrências.</li>
+<li><code>$</code> match de fim de linha</li>
+</ul>
+<p>Dito isso, a expressão acima retornaria multiplos matches possíveis, cobrindo uma série de notações possíveis, por exemplo:</p>
+<ul>
+<li>456-0909</li>
+<li>707-456-0909</li>
+<li>707.456.0909</li>
+<li>7074560909</li>
+<li>(707)4560909</li>
+<li>(707)456.0909</li>
+</ul>
+<h2 id="capítulo-2">Capítulo 2<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#capítulo-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Texto de teste</p>
+<p>THE RIME OF THE ANCYENT MARINERE, IN SEVEN PARTS.
+ARGUMENT.
+How a Ship having passed the Line was driven by Storms to the cold
+Country towards the South Pole; and how from thence she made her course
+to the tropical Latitude of the Great Pacific Ocean; and of the strange
+things that befell; and in what manner the Ancyent Marinere came back to
+his own Country.
+I.
+1      It is an ancyent Marinere,
+2      And he stoppeth one of three:
+3      “By thy long grey beard and thy glittering eye
+4      “Now wherefore stoppest me?</p>
+<h3 id="seletores-de-não-coisas">Seletores de não-coisas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#seletores-de-não-coisas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>No capítulo anterior vimos que é possível corresponder a dígitos usando a notação <code>[0-9]</code> ou <code>\d</code>, porém é igualmente útil pensarmos em quando queremos selecionar qualquer conteúdo que <em>não seja</em> o especificado. Há algumas maneiras de fazer isso, todas equivalentes. A primeira é usar o shorthand <code>\D</code>, igual ao que seleciona dígitos, porém com o D maiúsculo. Esta notação equivale a escrever <code>[^\d]</code> que por sua vez equivale a escrever <code>[^0-9]</code>. Estes dois exemplos são chamados de <em>classes negadas</em>.</p>
+<p>Aqui é bom introduzirmos shorthands para trabalhar com texto. Um extremamente útil é o <code>\w</code> que seleciona todos os caracteres de palavra e letras. Parte da sua utilidade é que este simples shorthand é equivalente a <code>[A-Za-z0-9]</code> .</p>
+<p>Uma diferença fundamental entre selecionar não dígitos usando <code>\D</code> e <code>\w</code> é que o primeiro selecionará além das letras pontuação e espaços em branco, enquanto o segundo selecionará só letras.</p>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Atenção </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>O shorthand acima só retornará caracteres ASCII básicos, ou seja, não será capaz de capturar caracteres acentuados, não romanos ou pontuação.</p>
+</div>
+</blockquote>
+<p>Por consequência podemos usar o shorthand <code>\W</code> para representar caracteres que não são usados em palavra, sinais de pontuação e espaços em branco. Equivale a escrevermos a expressão <code>[^a-zA-Z0-9]</code>.</p>
+<p>Abaixo, uma tabela contendo a lista estendida de todos os shorthands:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Shorthand</th><th>Significado</th><th>Shorthand</th><th>Significado</th></tr></thead><tbody><tr><td><code>\a</code></td><td>Alerta</td><td><code>\oxxx</code></td><td>Valor de caractere e octal</td></tr><tr><td><code>\b</code></td><td>Borda de palavra</td><td><code>\s</code></td><td>Espaço branco</td></tr><tr><td><code>[\b]</code></td><td>Backspace</td><td><code>\S</code></td><td>Não-espaço branco</td></tr><tr><td><code>\B</code></td><td>Não-borda de palavra</td><td><code>\t</code></td><td>Tabulação horizontal</td></tr><tr><td><code>\cx</code></td><td>Caractere de controle</td><td><code>\v</code></td><td>Tabulação vertical</td></tr><tr><td><code>\d</code></td><td>Dígito</td><td><code>\w</code></td><td>Caractere de palavra</td></tr><tr><td><code>\D</code></td><td>Não-dígito</td><td><code>\W</code></td><td>Não-caractere de palavra</td></tr><tr><td><code>\dxxx</code></td><td>Valor de dígito em decimal</td><td><code>\0</code></td><td>Caractere nulo</td></tr><tr><td><code>\f</code></td><td>Alimentação de formulário</td><td><code>\xxx</code></td><td>Caractere em hexadecimal</td></tr><tr><td><code>\r</code></td><td>Retorno de carro</td><td><code>\uxxx</code></td><td>Caractere em Unicode*</td></tr><tr><td><code>\n</code></td><td>Mudança de linha</td><td></td><td></td></tr></tbody></table></div>
+<p>*Nota: nem todos os processadores de Regex nascem iguais, e diferentes processadores tem suas peculiaridades. O processador embutido no InDesign é baseado na engine PCRE (perl compatible regular Expressions), e no caso da busca por unicode a sintaxe a ser usada no GREP é a seguinte: <code>\x{0000}</code>.</p>
+<p>Nem todos podem fazer sentido agora, mas serão vistos mais para frente. Fora que: Google tá aí pra isso!</p>
+<h3 id="seletores-de-espaços-em-branco">Seletores de espaços em branco<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#seletores-de-espaços-em-branco" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>O shorthand que corresponde a espaços em branco é <code>\s</code>. Vale dizer que ele funcionca como um guarda chuva, e corresponderá a alguns caracteres de espaço em branco diferentes, já que é equivalente a expressão <code>[ \t\r\n]</code>, ou seja: espaço em branco literal, espaço de tabulação (tab), retorno de carro e mudança de linha. Como podemos imaginar, ele tem sua expressão oposta: <code>\S</code> que equivale a qualquer coisa que não seja um espaço em branco, e é o mesmo que escrever <code>[ˆ \t\r\n]</code> ou <code>[ˆ\s]</code>.</p>
+<blockquote>
+<p><strong>Relembrando quantificadores:</strong>
+Ao digitarmos a expressão <code>\S</code> teríamos matches de tudo que não for espaço em branco, mas serão individuais. Ou seja, corresponderia a letras individualmente. Porém se usássemos o quantificador de um ou mais em conjunto <code>\S+</code> teríamos uma expressão que selecionaria todas as palavras:
+<strong>THE</strong> <strong>RIME</strong> <strong>OF</strong> <strong>THE</strong> <strong>ANCYENT</strong> <strong>MARINERE,</strong> <strong>IN</strong> <strong>SEVEN</strong> <strong>PARTS.</strong></p>
+</blockquote>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Nota sobre a diferença entre <code>\n</code> e <code>\r</code></p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>Em ASCII, <code>\r</code> foi codificado para ser o comando de carriage-retorno, que na época em que eram usadas impressoras matriciais fazia com que o carro (carriage) da impressora retornasse a posição inicial, no começo da <em>mesma</em> linha. Já o comando <code>\n</code> correspondia ao comando line-feed, que pulava uma linha. Na época, alguns sistemas automaticamente retornavam ao começo da linha quando uma linha era pulada, outros exigiam o uso dos dois comandos. Por isso hoje no Windows o terminador de linha dentro dos sistemas é <code>\r\n</code> enquanto nos sistemas Unix, como Mac e Linux são simplesmente <code>\n</code>.</p>
+<p>Ao utilizar os dois comandos no processador de GREP do InDesign (que é com o que nos importamos), cada um retornará resultados diferentes. Buscar por <code>\r</code> corresponderá com os caracteres de nova linha, o “Enter simples”, representado pelo símbolo do pé de mosca ¶ (Unicode U+000D ou 0xD), enquanto <code>\n</code> terá match com as quebras de linha, com atalho Shift+Enter (Unicode U+000A ou 0xA). Já o shorthand <code>\s</code> retornará ambos, além de espaços em branco comuns e tabulação.</p>
+</div>
+</blockquote>
+<h3 id="selecionando-qualquer-caractere">Selecionando qualquer caractere<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#selecionando-qualquer-caractere" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Em Regex, o ponto final . (U+002E) tem significado especial, e corresponde a qualquer caractere, exceto os caracteres de fim de linha, a não ser em determinadas circunstâncias. Por exemplo, digitando <code>........</code> corresponderia a blocos de oito caracteres de comprimento. É um pouco longo e abstrato, então poderíamos substituir por <code>.{8}</code>. Não é muito útil, pois selecionaria o texto inteiro nestes blocos de oito caracteres. Podemos porém usar esse novo recurso em um novo contexto, usando marcadores de borda e letras de começo e fim. Uma expressão como <code>\bA.{5}T\b</code> selecionaria todas as palavras que comecem com A e terminem com T, com cinco letras entre as duas. O elemento <code>\b</code> corresponde a borda de uma palavra, ou seja, um começo ou fim, sem consumir nenhum caractere. A e T as letras literais do começo e fim, e <code>.{5}</code> quaisquer 5 caracteres entre eles. Uma expressão mais simples como <code>\b\w{7}\b</code> retornaria todas as palavras com sete letras de comprimento.</p>
+<h3 id="questões">Questões<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#questões" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Porque o GREP dentro do InDesign dá match em Carriage Returns com <code>~b</code> ? De onde vem essa expressão?</li>
+<li>Dica indesign: comando <code>\s{2,}</code> selecionaria todos os espaços seguidos por um ou mais espaços, ou seja, tudo que for espaço duplo para cima.</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#introdução" data-for="introdução">Introdução</a></li><li class="depth-1"><a href="#o-que-é-grep" data-for="o-que-é-grep">O que é GREP?</a></li><li class="depth-1"><a href="#porque-isso-é-relevante" data-for="porque-isso-é-relevante">Porque isso é relevante?</a></li><li class="depth-1"><a href="#como-posso-usar-o-grep" data-for="como-posso-usar-o-grep">Como posso usar o GREP?</a></li><li class="depth-0"><a href="#capítulo-1" data-for="capítulo-1">Capítulo 1</a></li><li class="depth-1"><a href="#seletores-shorthand" data-for="seletores-shorthand">Seletores shorthand</a></li><li class="depth-1"><a href="#grupos-de-captura" data-for="grupos-de-captura">Grupos de captura</a></li><li class="depth-1"><a href="#quantificadores" data-for="quantificadores">Quantificadores</a></li><li class="depth-1"><a href="#teste-final" data-for="teste-final">Teste final</a></li><li class="depth-0"><a href="#capítulo-2" data-for="capítulo-2">Capítulo 2</a></li><li class="depth-1"><a href="#seletores-de-não-coisas" data-for="seletores-de-não-coisas">Seletores de não-coisas</a></li><li class="depth-1"><a href="#seletores-de-espaços-em-branco" data-for="seletores-de-espaços-em-branco">Seletores de espaços em branco</a></li><li class="depth-1"><a href="#selecionando-qualquer-caractere" data-for="selecionando-qualquer-caractere">Selecionando qualquer caractere</a></li><li class="depth-1"><a href="#questões" data-for="questões">Questões</a></li></ul></div></div><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../postscript.js" type="module"></script></html>
