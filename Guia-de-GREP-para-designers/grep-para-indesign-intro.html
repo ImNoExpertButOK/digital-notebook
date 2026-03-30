@@ -124,7 +124,9 @@ pre:hover > .expand-button {
 <p><em>In November 2008, as Wall Street teetered on the brink, turnout reached 61.6 percent of the eligible voting-age population. In 2020 it hit 66 percent, the highest proportion of Americans to cast a vote for a presidential candidate since 1900, receding slightly in 2024 to 64 percent, the second highest in over a century.</em></p>
 </blockquote>
 <p>Em uma abordagem tradicional precisaríamos buscar manualmente todas as ocorrências de datas no texto inteiro e selecioná-las uma a uma, o que é nada produtivo. Nosso tempo vale mais do que isso. Mas com um quase nada de expressões regulares conseguimos afetar todas as ocorrências de anos instantaneamente:</p>
-<iframe src="../static/sketches/grep/grep-demo-intro-1" width="800" height="400" frameborder="0"></iframe>
+<div style="position:relative;width:100%;padding-bottom:40%;height:0;overflow:hidden;">
+  <iframe src="../static/grep/grep-demo-intro-1" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+</div>
 <p>Tente não queimar muito a cabeça tentando desvendar a sintaxe, ela ficará clara em breve. O importante é pensar que enquanto uma busca simples de texto se pergunta <em>para cada palavra neste documento, esta palavra é igual a esta que estou procurando?</em> com o GREP estamos nos perguntando <em>para cada palavra neste documento, esta palavra atende a estes requisitos que eu especifiquei?</em></p>
 <h2 id="um-exemplo-prático">Um exemplo prático<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#um-exemplo-prático" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
 <p>Vamos observar o texto a seguir, retirado do denso Código Civil:</p>
@@ -136,7 +138,9 @@ Art. 1.021. Ter-se-á por domicílio da pessoa natural, que não tenha residênc
 Art. 1 074. Muda-se o domicílio, transferindo a residência, com a intenção manifesta de o mudar.</p>
 </blockquote>
 <p>Imagine que queremos aplicar um tratamento tipográfico específico ao início de cada linha, que explicita o Artigo. Se olharmos com atenção podemos observar que o texto que queremos afetar obedece um certo padrão: sempre começa com “Art.”, está sempre localizado no começo do parágrafo, é sempre seguido de números e terminado com um ponto, etc. Isso o torna um excelente candidato para ser selecionado usando expressões regulares. Novamente, a sintaxe é obtusa mas ignore-a por enquanto, ela fará sentido em breve:</p>
-<iframe src="../static/sketches/grep/grep-demo-intro-2" width="800" height="400" frameborder="0"></iframe>
+<div style="position:relative;width:100%;padding-bottom:50%;height:0;overflow:hidden;">
+  <iframe src="../static/grep/grep-demo-intro-2" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+</div>
 <p>Com GREP podemos criar uma expressão que não só captura todas as instâncias que queremos, mas é capaz de capturar até as <strong>exceções</strong>, como os dois últimos artigos, onde um ponto e um espaço separam a casa do milhar. Assim podemos combinar nossa expressão regular com o recurso de <strong>GREP Styles</strong>, dentro do menu de estilos de parágrafo do InDesign, para aplicar um estilo de caractere <strong>bold</strong> a nossa seleção:</p>
 <p><img src=".././Attachments/grep/guia-grep-exemplo-estilos-paragrafo.png" alt="Exemplo de grep aplicado a estilos de parágrafo|623"/></p>
 <h2 id="e-como-eu-faço-para-usar-o-grep">E como eu faço para usar o GREP?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#e-como-eu-faço-para-usar-o-grep" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
