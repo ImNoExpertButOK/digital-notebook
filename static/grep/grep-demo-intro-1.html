@@ -1,91 +1,68 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-    <body style="margin: 0">
-        <div
-            style="
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-                padding: 20px 0;
-                width: 100%;
-            "
-        >
-            <style>
-                @keyframes pulse-border {
-                    0% {
-                        box-shadow: 0 0 0 0px #9cc5a1;
-                    }
-                    30% {
-                        box-shadow: 0 0 0 8px rgba(127, 119, 221, 0);
-                    }
-                    100% {
-                        box-shadow: 0 0 0 0px rgba(127, 119, 221, 0);
-                    }
-                }
+<style>
+  @keyframes pulse-border {
+    0% {
+      box-shadow: 0 0 0 0px #9cc5a1;
+    }
+    30% {
+      box-shadow: 0 0 0 8px rgba(156, 197, 161, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0px rgba(156, 197, 161, 0);
+    }
+  }
+  .word-hl {
+    display: inline;
+    background-image: linear-gradient(#9cc5a1, #9cc5a1);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    border-radius: 3px;
+    transition:
+      color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .result-box:hover .word-hl {
+    color: #216869;
+    background-size: 100% 100%;
+  }
+  .result-box {
+    border: 1px solid #9cc5a1;
+    padding: 24px 32px;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+    line-height: 1.7;
+    animation: pulse-border 2s ease-out infinite;
+    cursor: default;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0 18px 18px 18px;
+  }
+</style>
 
-                .grep-col {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 50%;
-                    font-family: monospace;
-                    font-size: 32px;
-                    color: #555;
-                }
-                .text-col {
-                    width: 50%;
-                    border: 0.5px solid #aaa;
-                    border-radius: 18px;
-                    padding: 24px 32px;
-                    cursor: default;
-                    font-family: sans-serif;
-                    font-size: 16px;
-                    color: #555;
-                    text-align: center;
-                    box-sizing: border-box;
-                    line-height: 1.7;
-                    animation: pulse-border 2s ease-out infinite;
-                }
-                .row {
-                    display: flex;
-                    width: 99%;
-                }
-
-                /* highlight */
-                .word-hl {
-                    display: inline;
-                    background-image: linear-gradient(#9cc5a1, #9cc5a1);
-                    background-size: 0% 100%;
-                    background-repeat: no-repeat;
-                    background-position: left center;
-                    border-radius: 3px;
-                    transition:
-                        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                        background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                }
-                .text-col:hover .word-hl {
-                    color: #216869;
-                    background-size: 100% 100%;
-                }
-            </style>
-            <div class="row">
-                <div class="grep-col">\d{4}</div>
-                <div class="text-col">
-                    In November <span class="word-hl">2008</span>, as Wall
-                    Street teetered on the brink, turnout reached 61.6 percent
-                    of the eligible voting-age population. In
-                    <span class="word-hl">2020</span> it hit 66 percent, the
-                    highest proportion of Americans to cast a vote for a
-                    presidential candidate since
-                    <span class="word-hl">1900</span>, receding slightly in
-                    <span class="word-hl">2024</span> to 64 percent, the second
-                    highest in over a century.
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+<div style="padding: 20px 0">
+  <div style="display: flex; align-items: flex-end">
+    <span
+      style="
+        font-family: monospace;
+        font-size: 16px;
+        font-weight: 500;
+        color: #216869;
+        background: #e4f0e5;
+        border: 1px solid #9cc5a1;
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+        padding: 6px 18px;
+      "
+      >\d{4}</span
+    >
+  </div>
+  <div class="result-box">
+    In November <span class="word-hl">2008</span>, as Wall Street teetered on the brink, turnout
+    reached 61.6 percent of the eligible voting-age population. In
+    <span class="word-hl">2020</span> it hit 66 percent, the highest proportion of Americans to cast
+    a vote for a presidential candidate since <span class="word-hl">1900</span>, receding slightly
+    in <span class="word-hl">2024</span> to 64 percent, the second highest in over a century.
+  </div>
+</div>
